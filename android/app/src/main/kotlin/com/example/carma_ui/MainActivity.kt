@@ -1,4 +1,4 @@
-package com.example.ui
+package com.example.carma_ui
 
 import io.flutter.embedding.android.FlutterActivity
 
