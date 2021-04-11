@@ -1,0 +1,24 @@
+name: carma_ui
+publish_to: 'none'
+version: 1.0.0+1
+
+dependencies:
+  process_run: ^0.12.1
+
+  flutter:
+    sdk: flutter
+
+  window_size:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+flutter:
+  uses-material-design: true

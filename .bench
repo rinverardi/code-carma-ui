@@ -1,0 +1,25 @@
+setEnvironmentVariable ANDROID_HOME ~/opt/android-sdk
+setEnvironmentVariable CHROME_EXECUTABLE chromium
+setEnvironmentVariable FLUTTER_HOME ~/opt/flutter
+setEnvironmentVariable GRADLE_HOME ~/opt/gradle-6.1.1
+setEnvironmentVariable GRADLE_OPTS -Dorg.gradle.daemon=true
+setEnvironmentVariable JAVA_HOME ~/opt/jdk-1.8.0-281
+setEnvironmentVariable QEMU_AUDIO_DRV none
+setEnvironmentVariable STUDIO ~/opt/android-studio/bin/studio.sh
+setEnvironmentVariable STUDIO_JDK ~/opt/jdk-1.8.0-281
+
+prependEnvironmentVariable LD_LIBRARY_PATH : "$ANDROID_HOME/tools/lib64"
+
+prependEnvironmentVariable PATH : "$ANDROID_HOME/platform-tools"
+prependEnvironmentVariable PATH : "$ANDROID_HOME/tools/bin"
+prependEnvironmentVariable PATH : "$FLUTTER_HOME/bin"
+prependEnvironmentVariable PATH : "$GRADLE_HOME/bin"
+prependEnvironmentVariable PATH : "$JAVA_HOME/bin"
+
+checkDirectory $ANDROID_HOME
+checkDirectory $FLUTTER_HOME
+checkDirectory $GRADLE_HOME
+checkDirectory $JAVA_HOME
+checkDirectory $STUDIO_JDK
+
+checkFile $STUDIO
