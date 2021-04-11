@@ -67,10 +67,10 @@ class _AppState extends State<_App> {
   }
 }
 
-class ButtonBrowseNext extends StatelessWidget {
+class _ButtonBrowseNext extends StatelessWidget {
   final int level;
 
-  ButtonBrowseNext(this.level);
+  _ButtonBrowseNext(this.level);
 
   @override
   Widget build(BuildContext context) => IconButton(
@@ -82,10 +82,10 @@ class ButtonBrowseNext extends StatelessWidget {
       );
 }
 
-class ButtonBrowsePrevious extends StatelessWidget {
+class _ButtonBrowsePrevious extends StatelessWidget {
   final int level;
 
-  ButtonBrowsePrevious(this.level);
+  _ButtonBrowsePrevious(this.level);
 
   @override
   Widget build(BuildContext context) => IconButton(
@@ -179,20 +179,22 @@ class _PickerState extends State<_Picker> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ButtonBrowsePrevious(widget.level),
+        _ButtonBrowsePrevious(widget.level),
         Expanded(
-          child: PickerText(widget.value),
+          child: widget.value.length == 0
+              ? LinearProgressIndicator()
+              : _PickerText(widget.value),
         ),
-        ButtonBrowseNext(widget.level),
+        _ButtonBrowseNext(widget.level),
       ],
     );
   }
 }
 
-class PickerText extends StatelessWidget {
+class _PickerText extends StatelessWidget {
   final String value;
 
-  PickerText(this.value);
+  _PickerText(this.value);
 
   @override
   Widget build(BuildContext context) => DecoratedBox(
