@@ -3,10 +3,10 @@ setEnvironmentVariable CHROME_EXECUTABLE chromium
 setEnvironmentVariable FLUTTER_HOME ~/opt/flutter
 setEnvironmentVariable GRADLE_HOME ~/opt/gradle-6.1.1
 setEnvironmentVariable GRADLE_OPTS -Dorg.gradle.daemon=true
-setEnvironmentVariable JAVA_HOME ~/opt/jdk-1.8.0-281
+setEnvironmentVariable JAVA_HOME ~/opt/jdk-1.8.0-202
 setEnvironmentVariable QEMU_AUDIO_DRV none
 setEnvironmentVariable STUDIO ~/opt/android-studio/bin/studio.sh
-setEnvironmentVariable STUDIO_JDK ~/opt/jdk-1.8.0-281
+setEnvironmentVariable STUDIO_JDK ~/opt/jdk-1.8.0-202
 
 prependEnvironmentVariable LD_LIBRARY_PATH : "$ANDROID_HOME/tools/lib64"
 

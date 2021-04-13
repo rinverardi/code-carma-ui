@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:carma_ui/driver.dart';
-import 'package:carma_ui/driver_shell.dart';
+import 'package:carma_ui/driver_web.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 
-final driver = ShellDriver();
+final driver = WebDriver('http://172.16.1.40/cgi-bin/carma_web');
 
 void main() => runApp(_App());
 
@@ -23,6 +23,9 @@ class _AppState extends State<_App> {
   @override
   Widget build(BuildContext context) => MaterialApp(
         home: Scaffold(
+          appBar: AppBar(
+            title: Text("Carma UI"),
+          ),
           backgroundColor: Color.fromARGB(0xff, 0xee, 0xee, 0xee),
           body: Column(
             children: [
@@ -38,14 +41,15 @@ class _AppState extends State<_App> {
         ),
       );
 
-  void _applyResult(DriverResult result) => setState(() {
+  void _applyResult(AbstractDriverResult result) => setState(() {
         _currentSet = result.currentSet;
         _currentArtist = result.currentArtist;
         _currentAlbum = result.currentAlbum;
         _currentTrack = result.currentTrack;
       });
 
-  static void _applyResultVia(DriverResult result, BuildContext context) {
+  static void _applyResultVia(
+      AbstractDriverResult result, BuildContext context) {
     final state = context.findAncestorStateOfType<_AppState>();
 
     state?._applyResult(result);

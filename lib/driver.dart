@@ -1,39 +1,37 @@
 import 'dart:async';
-import 'dart:io';
 
-import 'package:process_run/shell.dart';
+abstract class AbstractDriver {
+  Future<AbstractDriverResult> browseNext(int level);
 
-abstract class Driver {
-  Future<DriverResult> browseNext(int level);
-
-  Future<DriverResult> browsePrevious(int level);
+  Future<AbstractDriverResult> browsePrevious(int level);
 
   void play();
 
-  Future<DriverResult> playNext();
+  Future<AbstractDriverResult> playNext();
 
-  Future<DriverResult> playPrevious();
+  Future<AbstractDriverResult> playPrevious();
 
   void seekBackward();
 
   void seekForward();
 
-  Future<DriverResult> ping();
+  Future<AbstractDriverResult> ping();
 
   void start();
 
   void toggle();
 }
 
-class DriverResult {
+class AbstractDriverResult {
   final String currentSet;
   final String currentArtist;
   final String currentAlbum;
   final String currentTrack;
 
-  DriverResult(final ProcessResult result)
-      : currentSet = result.outLines.elementAt(0),
-        currentArtist = result.outLines.elementAt(1),
-        currentAlbum = result.outLines.elementAt(2),
-        currentTrack = result.outLines.elementAt(3);
+  AbstractDriverResult(
+    this.currentSet,
+    this.currentArtist,
+    this.currentAlbum,
+    this.currentTrack,
+  );
 }
