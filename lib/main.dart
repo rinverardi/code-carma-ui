@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:carma_ui/driver.dart';
+import 'package:carma_ui/driver_shell.dart';
 import 'package:carma_ui/driver_web.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 
-final driver = WebDriver('http://172.16.1.40/cgi-bin/carma_web');
+final driver = ShellDriver();
 
 void main() => runApp(_App());
 
